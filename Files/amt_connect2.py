@@ -5,8 +5,8 @@ from boto.mturk.question import QuestionContent,Question,QuestionForm,Overview,A
 from boto.mturk.qualification import *
 from boto.mturk import *
 
-ACCESS_ID = 'AKIAIATFPNZUIV56YUFA'
-SECRET_KEY = '1ThISum57Mdz45R5beMYiy1Rf26lZb3d3bJNNWLC'
+ACCESS_ID = 'YOUR_ACCESS_ID'
+SECRET_KEY = 'YOUR_SECRET_KEY'
 HOST = 'mechanicalturk.sandbox.amazonaws.com'
 
 mtc = MTurkConnection(aws_access_key_id=ACCESS_ID,
