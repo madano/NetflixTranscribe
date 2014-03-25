@@ -3,8 +3,8 @@ import io
 sys.path.append("/home/ugrads/m/madano/web_project/Python27/Lib/site-packages")
 from boto.mturk.connection import MTurkConnection
 
-ACCESS_ID = 'AKIAIATFPNZUIV56YUFA'
-SECRET_KEY = '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'
+ACCESS_ID = ''
+SECRET_KEY = ''
 HOST = 'mechanicalturk.sandbox.amazonaws.com'
 
 
