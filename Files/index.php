@@ -8,8 +8,8 @@
 <?php
 putenv('PYTHONPATH = /home/ugrads/m/madano/web_project/Python27/Lib/site-packages');
 $output = shell_exec('python amt_connect.py');
-echo $output;
-$fh = fopen('test.txt','r');
+#echo $output;
+$fh = fopen('result.txt','r');
 while ($line = fgets($fh))
 {
 	echo $line;

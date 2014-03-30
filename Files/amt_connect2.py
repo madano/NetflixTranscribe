@@ -5,9 +5,9 @@ from boto.mturk.question import QuestionContent,Question,QuestionForm,Overview,A
 from boto.mturk.qualification import *
 from boto.mturk import *
 
-ACCESS_ID = 'YOUR_ACCESS_ID'
-SECRET_KEY = 'YOUR_SECRET_KEY'
-HOST = 'mechanicalturk.sandbox.amazonaws.com'
+ACCESS_ID = ''
+SECRET_KEY = ''
+HOST = 'mechanicalturk.amazonaws.com'
 
 mtc = MTurkConnection(aws_access_key_id=ACCESS_ID,
                       aws_secret_access_key=SECRET_KEY,
@@ -80,7 +80,7 @@ s1 = """<![CDATA[<h3>Listen to a short video and transcribe what is said.</h3>
 
 
 overview = Overview()
-overview.append_field('Title', 'Give your opinion on this website')
+overview.append_field('Title', 'Transcribe words')
 
 overview.append_field('FormattedContent',s1)
 
@@ -92,7 +92,7 @@ overview.append_field('FormattedContent',s1)
 
 #---------------  BUILD QUESTION 2 -------------------
 time_start = 6140;
-time_end = 240;
+time_end = 400;
 time_current = 6140;
 
 while time_current > time_end:
@@ -138,7 +138,7 @@ while time_current > time_end:
 	qc2 = QuestionContent()
 	qc2.append_field('Title',watch)
 	 
-	fta2 = FreeTextAnswer()
+	fta2 = FreeTextAnswer(str(time_current+10))
 	 
 	q2 = Question(identifier="comments",
 				  content=qc2,
@@ -151,7 +151,7 @@ while time_current > time_end:
 	question_form.append(q2)
 	 
 	#--------------- CREATE THE HIT -------------------
-	 
+	
 	
 	mtc.create_hit(questions=question_form,
 				   max_assignments=1,

@@ -3,9 +3,11 @@ import io
 sys.path.append("/home/ugrads/m/madano/web_project/Python27/Lib/site-packages")
 from boto.mturk.connection import MTurkConnection
 
+#REFEREBCES: http://www.toforge.com/2011/05/boto-mturk-tutorial-fetch-results-and-pay-workers/
+
 ACCESS_ID = ''
 SECRET_KEY = ''
-HOST = 'mechanicalturk.sandbox.amazonaws.com'
+HOST = 'mechanicalturk.amazonaws.com'
 
 
 def get_all_reviewable_hits(mtc):
@@ -30,7 +32,7 @@ def get_all_reviewable_hits(mtc):
     pn = 1
     while pn < total_pages:
         pn = pn + 1
-#        print "Request hits page %i" % pn
+        print "Request hits page %i" % pn
         temp_hits = mtc.get_reviewable_hits(page_size=page_size,page_number=pn)
         hits.extend(temp_hits)
     return hits
@@ -40,17 +42,18 @@ mtc = MTurkConnection(aws_access_key_id=ACCESS_ID,
                       host=HOST)
 
 hits = get_all_reviewable_hits(mtc)
-
+num = 0
 for hit in hits:
     assignments = mtc.get_assignments(hit.HITId)
     for assignment in assignments:
         print "Answers of the worker %s" % assignment.WorkerId
         for question_form_answer in assignment.answers[0]:
-            for key, value in question_form_answer.fields:
+            for value in question_form_answer.fields:
+				num = num +1
 				f = open("result.txt", "a")
-				f.write(key + ": " + value)
+				f.write("\nvalue: " + str(num) + " " + value)
 				f.close()
-#                print "%s: %s" % (key,value)
+				print "%s" % value
 				mtc.approve_assignment(assignment.AssignmentId)
-				print "--------------------"
 				mtc.disable_hit(hit.HITId)
+				
