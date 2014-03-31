@@ -1,0 +1,35 @@
+#outerbox
+{
+	width: 850px;
+	margin: 0 auto;
+}
+
+#head
+{
+	height: 75px;
+}
+
+#columnsbox
+{
+	width: 100%;
+	float: left;
+}
+
+#leftcolumn
+{
+	background: #FAFAFA;
+	float: left;
+	width: 425px;
+}
+
+#rightcolumn
+{
+	background: #E3F6CE;
+	margin-left: 425px;
+}
+
+.spacer
+{
+	margin: 12px;
+	margin-top: 0;
+}

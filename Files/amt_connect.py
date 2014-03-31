@@ -42,7 +42,7 @@ for hit in hits:
         #print "Answers of the worker %s" % assignment.WorkerId
         for question_form_answer in assignment.answers[0]:
             for value in question_form_answer.fields:
-				print "\nResult: " + value
+				print value
 				#print "%s" % value
 				mtc.approve_assignment(assignment.AssignmentId)
 				mtc.disable_hit(hit.HITId)
