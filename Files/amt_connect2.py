@@ -133,7 +133,7 @@ while time_current > time_end:
 		watch = "Watch From: " + str(hours_from) + ":" + minutes_from + ":" + seconds_from + " To: " + minutes_to + ":" + seconds_to
 	else:
 		watch = "Watch From: " + minutes_from + ":" + seconds_from + " To: " + minutes_to + ":" + seconds_to
-		
+	watch = watch + ". Please leave the number that is in the textbox and start the line after it."		
 	print watch
 	qc2 = QuestionContent()
 	qc2.append_field('Title',watch)
@@ -158,6 +158,6 @@ while time_current > time_end:
 				   title=title,
 				   description=description,
 				   keywords=keywords,
-				   duration = 60*5,
-				   reward=0.01)
+				   duration = 60*25,
+				   reward=0.10)
 print "worked" 
